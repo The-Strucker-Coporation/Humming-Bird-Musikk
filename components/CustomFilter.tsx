@@ -3,7 +3,7 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { Listbox, Transition } from "@headlessui/react";
+import { Listbox, ListboxButton, ListboxOption, ListboxOptions, Transition } from "@headlessui/react";
 import { CustomFilterProps } from "@types";
 import { updateSearchParams } from "@utils";
 
@@ -11,7 +11,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
   const router = useRouter();
   const [selected, setSelected] = useState(options[0]); // State for storing the selected option
 
-  // update the URL search parameters and navigate to the new URL
+  // Update the URL search parameters and navigate to the new URL
   const handleUpdateParams = (e: { title: string; value: string }) => {
     // Check if e.value is a string before applying toLowerCase
     const newPathName = updateSearchParams(title, typeof e.value === "string" ? e.value.toLowerCase() : "");
@@ -28,7 +28,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
         }}
       >
         <div className="relative w-fit z-10">
-          <Listbox.Button className="custom-filter__btn">
+          <ListboxButton className="custom-filter__btn">
             <span className="block truncate">{selected.title}</span>
             <Image
               src="/chevron-up-down.svg"
@@ -37,7 +37,7 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
               className="ml-4 object-contain"
               alt="chevron_up-down"
             />
-          </Listbox.Button>
+          </ListboxButton>
 
           <Transition
             as={Fragment}
@@ -45,9 +45,9 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
             leaveFrom="opacity-100"
             leaveTo="opacity-0"
           >
-            <Listbox.Options className="custom-filter__options">
+            <ListboxOptions className="custom-filter__options">
               {options.map((option) => (
-                <Listbox.Option
+                <ListboxOption
                   key={option.title}
                   className={({ active }) =>
                     `relative cursor-default select-none py-2 px-4 ${
@@ -57,19 +57,17 @@ export default function CustomFilter({ title, options }: CustomFilterProps) {
                   value={option}
                 >
                   {({ selected }) => (
-                    <>
-                      <span
-                        className={`block truncate ${
-                          selected ? "font-medium" : "font-normal"
-                        }`}
-                      >
-                        {option.title}
-                      </span>
-                    </>
+                    <span
+                      className={`block truncate ${
+                        selected ? "font-medium" : "font-normal"
+                      }`}
+                    >
+                      {option.title}
+                    </span>
                   )}
-                </Listbox.Option>
+                </ListboxOption>
               ))}
-            </Listbox.Options>
+            </ListboxOptions>
           </Transition>
         </div>
       </Listbox>

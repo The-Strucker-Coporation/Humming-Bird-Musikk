@@ -8,6 +8,7 @@ export interface BookProps {
 }
 
 export interface FilterProps {
+  title: string;
   category?: "workbook" | "creative arts";
   grade?: number;
   limit?: number;
@@ -21,8 +22,10 @@ export interface BookCardProps {
   title: string;
   description: string;
   grade: number;
-  category: "workbook" | "creative arts";
+  category: "workbook" | "creative arts"; // Strictly typing category
 }
+
+
 
 export interface CustomButtonProps {
   isDisabled?: boolean;
@@ -42,7 +45,9 @@ export interface OptionProps {
 export interface CustomFilterProps {
   title: string;
   options: OptionProps[];
+  defaultValue: string;  // Add this line to support defaultValue
 }
+
 
 export interface ShowMoreProps {
   pageNumber: number;

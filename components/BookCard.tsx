@@ -1,17 +1,11 @@
-"use client";
-
+// components/BookCard.tsx
+import { BookCardProps } from "@types"; // Correct import for the type
 import { useState } from "react";
-import { BookCardProps as BookCardPropsType } from "@types"; // Update the import to use BookCardProps
 import CustomButton from "./CustomButton";
-import BookDetails from "./BookDetails"; // Assuming there is a BookDetails component
+import BookDetails from "./BookDetails";
 
-interface BookCardProps {
-  book: BookCardPropsType; // Use the correct prop type for the book
-}
-
-const BookCard = ({ book }: BookCardProps) => {
+const BookCard = ({ book }: { book: BookCardProps }) => {
   const { title, description, grade, category } = book;
-
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -24,7 +18,7 @@ const BookCard = ({ book }: BookCardProps) => {
       <p className="text-sm font-medium capitalize">Category: {category}</p>
 
       <div className="relative w-full h-40 my-3 object-contain">
-        <img src='/placeholder-image.svg' alt='book cover' className="object-contain w-full h-full" />
+        <img src="/placeholder-image.svg" alt="book cover" className="object-contain w-full h-full" />
       </div>
 
       <p className="book-card__description">{description.slice(0, 100)}...</p>

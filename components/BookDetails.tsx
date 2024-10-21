@@ -1,19 +1,19 @@
 import { Fragment } from "react";
 import Image from "next/image";
-import { Dialog, Transition } from "@headlessui/react";
-import { BookCardProps } from "@types"; // Import book-related props
+import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
+import { BookCardProps } from "@types";
 
 interface BookDetailsProps {
   isOpen: boolean;
   closeModal: () => void;
-  book: BookCardProps; // Book data
+  book: BookCardProps;
 }
 
 const BookDetails = ({ isOpen, closeModal, book }: BookDetailsProps) => (
   <>
     <Transition appear show={isOpen} as={Fragment}>
       <Dialog as="div" className="relative z-10" onClose={closeModal}>
-        <Transition.Child
+        <TransitionChild
           as={Fragment}
           enter="ease-out duration-300"
           enterFrom="opacity-0"
@@ -23,11 +23,11 @@ const BookDetails = ({ isOpen, closeModal, book }: BookDetailsProps) => (
           leaveTo="opacity-0"
         >
           <div className="fixed inset-0 bg-black bg-opacity-25" />
-        </Transition.Child>
+        </TransitionChild>
 
         <div className="fixed inset-0 overflow-y-auto">
           <div className="flex min-h-full items-center justify-center p-4 text-center">
-            <Transition.Child
+            <TransitionChild
               as={Fragment}
               enter="ease-out duration-300"
               enterFrom="opacity-0 scale-95"
@@ -36,7 +36,7 @@ const BookDetails = ({ isOpen, closeModal, book }: BookDetailsProps) => (
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
+              <DialogPanel className="relative w-full max-w-lg max-h-[90vh] overflow-y-auto transform rounded-2xl bg-white p-6 text-left shadow-xl transition-all flex flex-col gap-5">
                 <button
                   type="button"
                   className="absolute top-2 right-2 z-10 w-fit p-2 bg-primary-blue-100 rounded-full"
@@ -71,8 +71,8 @@ const BookDetails = ({ isOpen, closeModal, book }: BookDetailsProps) => (
                     </div>
                   </div>
                 </div>
-              </Dialog.Panel>
-            </Transition.Child>
+              </DialogPanel>
+            </TransitionChild>
           </div>
         </div>
       </Dialog>

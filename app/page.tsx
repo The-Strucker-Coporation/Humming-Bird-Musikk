@@ -1,22 +1,28 @@
-import { fetchBooks } from "@utils";
-import { HomeProps } from "@types";
+import { HomeProps,BookCardProps } from "@types";
 import { grades, categories } from "@constants";
-import { BookCard, ShowMore, SearchBar, CustomFilter, Hero } from "@components";
+import { BookCard, ShowMore, CustomFilter, Hero } from "@components";
+import { BookData } from "@constants/BookData";
 
-export default async function Home({ searchParams }: HomeProps) {
-  const allBooks = await fetchBooks({
-    category: searchParams.category || "workbook", // Default category
-    grade: searchParams.grade || "1", // Default grade
-    limit: searchParams.limit || 10,
-    title: searchParams.title || "",
+export default function Home({ searchParams }: HomeProps) {
+  const categoryFilter = searchParams.category || "creative arts";
+  const gradeFilter = searchParams.grade ? String(searchParams.grade) : "3";
+
+  // Ensure books are filtered with a valid category type: "workbook" or "creative arts"
+  const allBooks = [
+    ...BookData.workbooks,
+    ...BookData.creativeArts,
+  ].filter(book => {
+    return (
+      book.category === categoryFilter &&
+      book.grade === parseInt(gradeFilter) // Ensure grade comparison is numeric
+    );
   });
 
-  const isDataEmpty = !Array.isArray(allBooks) || allBooks.length < 1 || !allBooks;
+  const isDataEmpty = allBooks.length < 1;
 
   return (
     <main className='overflow-hidden'>
       <Hero />
-
       <div className='mt-12 padding-x padding-y max-width' id='discover'>
         <div className='home__text-container'>
           <h1 className='text-4xl font-extrabold'>Music Education Catalog</h1>
@@ -24,31 +30,44 @@ export default async function Home({ searchParams }: HomeProps) {
         </div>
 
         <div className='home__filters'>
-          <SearchBar />
-
           <div className='home__filter-container'>
-            <CustomFilter title='Category' options={categories} />
-            <CustomFilter title='Grade' options={grades} />
+            <CustomFilter
+              title="Category"
+              options={categories.map(category => ({
+                title: category.title,
+                value: category.value,
+              }))}
+              defaultValue={categoryFilter}
+            />
+            <CustomFilter
+              title="Grade"
+              options={grades.map(grade => ({
+                title: `Grade ${grade.value}`,
+                value: String(grade.value),
+              }))}
+              defaultValue={gradeFilter}
+            />
           </div>
         </div>
 
         {!isDataEmpty ? (
           <section>
             <div className='home__books-wrapper'>
-              {allBooks?.map((book) => (
-                <BookCard key={book.title} book={book} />
+              {allBooks.map((book) => (
+                <BookCard book={book as BookCardProps} />
+
               ))}
             </div>
 
             <ShowMore
-              pageNumber={(searchParams.limit || 10) / 10}
+              pageNumber={Math.ceil((searchParams.limit || 10) / 10)}
               isNext={(searchParams.limit || 10) > allBooks.length}
             />
           </section>
         ) : (
           <div className='home__error-container'>
             <h2 className='text-black text-xl font-bold'>Oops, no results</h2>
-            <p>{allBooks?.message}</p> {/* Handle message here */}
+            <p>No books available for the selected filters.</p>
           </div>
         )}
       </div>
