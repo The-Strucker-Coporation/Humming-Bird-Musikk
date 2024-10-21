@@ -1,73 +1,89 @@
-export const manufacturers = [
-  "Acura",
-  "Alfa Romeo",
-  "Aston Martin",
-  "Audi",
-  "Bentley",
-  "BMW",
-  "Buick",
-  "Cadillac",
-  "Chevrolet",
-  "Chrysler",
-  "Citroen",
-  "Dodge",
-  "Ferrari",
-  "Fiat",
-  "Ford",
-  "GMC",
-  "Honda",
-  "Hyundai",
-  "Infiniti",
-  "Jaguar",
-  "Jeep",
-  "Kia",
-  "Lamborghini",
-  "Land Rover",
-  "Lexus",
-  "Lincoln",
-  "Maserati",
-  "Mazda",
-  "McLaren",
-  "Mercedes-Benz",
-  "MINI",
-  "Mitsubishi",
-  "Nissan",
-  "Porsche",
-  "Ram",
-  "Rolls-Royce",
-  "Subaru",
-  "Tesla",
-  "Toyota",
-  "Volkswagen",
-  "Volvo",
+export const BookData = {
+  workbooks: [
+    {
+      title: "Music Workbook - Book 1",
+      description: "The Music Workbook - Book 1 by Naftali Korir is a foundational resource designed to introduce learners to the world of music...",
+      grade: 1,
+      category: "workbook",
+    },
+    {
+      title: "Music Workbook - Book 2",
+      description: "Music Workbook - Book 2 by Naftali Korir builds on the foundational skills introduced in the first book, advancing learners’ understanding of musical theory and practice...",
+      grade: 2,
+      category: "workbook",
+    },
+    {
+      title: "Music Workbook - Book 3",
+      description: "Music Workbook - Book 3 by Naftali Korir is designed for students who are ready to take their musical knowledge to the next level...",
+      grade: 3,
+      category: "workbook",
+    },
+    {
+      title: "Music Workbook - Book 4",
+      description: "Music Workbook - Book 4 by Naftali Korir expands upon the concepts introduced in earlier books, offering learners a comprehensive guide to advanced music theory...",
+      grade: 4,
+      category: "workbook",
+    },
+    {
+      title: "Music Workbook - Book 5",
+      description: "Music Workbook - Book 5 by Naftali Korir is tailored for learners who are nearing mastery in music theory and practical performance...",
+      grade: 5,
+      category: "workbook",
+    },
+    {
+      title: "Music Workbook - Book 6",
+      description: "Music Workbook - Book 6 by Naftali Korir is the final book in this comprehensive series, designed for highly advanced students...",
+      grade: 6,
+      category: "workbook",
+    },
+  ],
+  creativeArts: [
+    {
+      title: "Hummingbird Creative Activities Learner’s Book - Grade 2",
+      description: "The Hummingbird Creative Activities, Grade 2 Learner’s Book is a comprehensive course book developed in line with the Competency-Based Curriculum for the Junior School...",
+      grade: 2,
+      category: "creative arts",
+    },
+    {
+      title: "Hummingbird Creative Activities Learner’s Book - Grade 3",
+      description: "Hummingbird Creative Activities, Grade 3 Learner’s Book is a comprehensive course book developed in line with the Competency-Based Curriculum for the Junior School...",
+      grade: 3,
+      category: "creative arts",
+    },
+    {
+      title: "Hummingbird Creative Arts Learner’s Book - Grade 5",
+      description: "Hummingbird Creative Arts, Grade 5 Learner’s Book is a comprehensive course book developed in line with the Competency-Based Curriculum for the Junior School...",
+      grade: 5,
+      category: "creative arts",
+    },
+    {
+      title: "Hummingbird Creative Arts Learner’s Book - Grade 6",
+      description: "Hummingbird Creative Arts, Grade 6 Learner’s Book is a comprehensive course book developed in line with the Competency-Based Curriculum for the Junior School...",
+      grade: 6,
+      category: "creative arts",
+    },
+    {
+      title: "Hummingbird Creative Arts and Sports Learner’s Book - Grade 9",
+      description: "The Hummingbird Creative Arts and Sports, Grade 9 Learner’s Book is a comprehensive course book developed in line with the Competency-Based Curriculum for the Junior School...",
+      grade: 9,
+      category: "creative arts",
+    },
+  ],
+};
+
+export const categories = [
+  { title: "Workbooks", value: "workbook" },
+  { title: "Creative Arts", value: "creative arts" },
 ];
 
-export const yearsOfProduction = [
-  { title: "Year", value: "" },
-  { title: "2015", value: "2015" },
-  { title: "2016", value: "2016" },
-  { title: "2017", value: "2017" },
-  { title: "2018", value: "2018" },
-  { title: "2019", value: "2019" },
-  { title: "2020", value: "2020" },
-  { title: "2021", value: "2021" },
-  { title: "2022", value: "2022" },
-  { title: "2023", value: "2023" },
-];
-
-export const fuels = [
-  {
-    title: "Fuel",
-    value: "",
-  },
-  {
-    title: "Gas",
-    value: "Gas",
-  },
-  {
-    title: "Electricity",
-    value: "Electricity",
-  },
+export const grades = [
+  { title: "Grade 1", value: 1 },
+  { title: "Grade 2", value: 2 },
+  { title: "Grade 3", value: 3 },
+  { title: "Grade 4", value: 4 },
+  { title: "Grade 5", value: 5 },
+  { title: "Grade 6", value: 6 },
+  { title: "Grade 9", value: 9 },
 ];
 
 export const footerLinks = [
@@ -77,7 +93,7 @@ export const footerLinks = [
       { title: "How it works", url: "/" },
       { title: "Featured", url: "/" },
       { title: "Partnership", url: "/" },
-      { title: "Bussiness Relation", url: "/" },
+      { title: "Business Relation", url: "/" },
     ],
   },
   {

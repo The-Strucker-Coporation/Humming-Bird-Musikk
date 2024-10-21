@@ -3,8 +3,8 @@ import "./globals.css";
 import { Footer, NavBar } from "@components";
 
 export const metadata = {
-  title: "Car Hub",
-  description: "Discover world's best car showcase application",
+  title: "Humming Bird Musikk™",
+  description: "Explore expert music education resources, publishing, and printing solutions.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
