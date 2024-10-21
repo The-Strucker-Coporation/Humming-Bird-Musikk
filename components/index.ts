@@ -1,4 +1,4 @@
-import BookCard from "./BookCard";
+import CarCard from "./CarCard";
 import CustomButton from "./CustomButton";
 import CustomFilter from "./CustomFilter";
 import Footer from "./Footer";
@@ -9,7 +9,7 @@ import Hero from "./Hero";
 
 export {
   Hero,
-  BookCard,
+  CarCard,
   CustomButton,
   CustomFilter,
   Footer,

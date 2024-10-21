@@ -1,4 +1,5 @@
 import "./globals.css";
+
 import { Footer, NavBar } from "@components";
 
 export const metadata = {
@@ -8,7 +9,7 @@ export const metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html>  {/* Optionally, you can add the lang attribute */}
+    <html lang='en'>
       <body className='relative'>
         <NavBar />
         {children}
