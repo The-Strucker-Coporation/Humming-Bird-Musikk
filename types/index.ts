@@ -1,27 +1,40 @@
 import { MouseEventHandler } from "react";
 
-export interface BookProps {
-  title: string;
-  description: string;
-  grade: number;
-  category: "workbook" | "creative arts";
+export interface CarProps {
+  city_mpg: number;
+  class: string;
+  combination_mpg: number;
+  cylinders: number;
+  displacement: number;
+  drive: string;
+  fuel_type: string;
+  highway_mpg: number;
+  make: string;
+  model: string;
+  transmission: string;
+  year: number;
 }
 
 export interface FilterProps {
-  category?: "workbook" | "creative arts";
-  grade?: number;
+  manufacturer?: string;
+  year?: number;
+  model?: string;
   limit?: number;
+  fuel?: string;
 }
 
 export interface HomeProps {
   searchParams: FilterProps;
 }
 
-export interface BookCardProps {
-  title: string;
-  description: string;
-  grade: number;
-  category: "workbook" | "creative arts";
+export interface CarCardProps {
+  model: string;
+  make: string;
+  mpg: number;
+  transmission: string;
+  year: number;
+  drive: string;
+  cityMPG: number;
 }
 
 export interface CustomButtonProps {
@@ -49,12 +62,7 @@ export interface ShowMoreProps {
   isNext: boolean;
 }
 
-export interface SearchCategoryProps {
-  category: "workbook" | "creative arts";
-  setCategory: (category: "workbook" | "creative arts") => void;
-}
-
-export interface SearchGradeProps {
-  grade: number;
-  setGrade: (grade: number) => void;
+export interface SearchManuFacturerProps {
+  manufacturer: string;
+  setManuFacturer: (manufacturer: string) => void;
 }
